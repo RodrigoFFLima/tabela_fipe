@@ -12,7 +12,8 @@ export default function Index() {
 
   const { data, error, isLoading, mutate } = useSWR<Marca[]>(
     "/carros/marcas",
-    fetcher
+    fetcher,
+    { dedupingInterval: 86_000_000 } // 1 day
   );
 
   if (error) {
